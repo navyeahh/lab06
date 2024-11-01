@@ -28,6 +28,21 @@ diamonds <- diamonds %>% rename(
 
 ```{r}
 # Do some preliminary investigations & cleaning
+diamonds %>%
+  filter(
+    length_mm > 0,
+    width_mm > 0,
+    depth_mm > 0
+  ) %>%
+  count(cut)
+
+diamonds %>%
+  summarise(
+    mean_length = mean(length_mm, na.rm = TRUE),
+    mean_width = mean(width_mm, na.rm = TRUE),
+    mean_depth = mean(depth_mm, na.rm = TRUE)
+  )
+
 
 
 
